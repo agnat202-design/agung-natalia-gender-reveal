@@ -17,4 +17,7 @@ footer{text-align:center;padding:24px 12px;font:11px Arial,sans-serif;letter-spa
 .guess[aria-pressed="true"]{outline:2px solid #d8c18d;outline-offset:3px}
 .reveal h2 span,.baby-icon{color:#a96b7a}
 .confetti-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-button:disabled{cursor:default}
+button:disabled{cursor:not-allowed;opacity:.45;box-shadow:none}
+button:disabled:hover{transform:none;background:#b8a16e}
+.stage .guess-instruction{font:14px/1.6 Arial,sans-serif;color:#d8c18d;margin:24px auto 12px}
+.feedback{line-height:1.6;margin:0 auto 20px;max-width:440px}

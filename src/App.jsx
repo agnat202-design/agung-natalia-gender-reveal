@@ -58,9 +58,10 @@ export default function App() {
 <h2>Menurut kamu, <span className="script">si kecil</span> perempuan atau laki-laki?</h2>
 <p>Ini dia foto USG si kecil yang masih menyimpan rahasia. Coba tebak dulu sebelum kita membuka jawabannya… 🤍</p>
 <img className="ultrasound" src="/images/ultrasound.jpg" alt="Foto USG calon buah hati Agung dan Natalia" />
+<p className="guess-instruction" id="guessInstruction">Silakan klik salah satu pilihan di bawah ini untuk menebak 🤍</p>
 <div className="guess-row"><button type="button" className="guess" data-guess="girl" aria-pressed={guess === "girl"} onClick={() => setGuess("girl")}>Tebak perempuan ♡</button><button type="button" className="guess boy" data-guess="boy" aria-pressed={guess === "boy"} onClick={() => setGuess("boy")}>Tebak laki-laki ✦</button></div>
-<div className="feedback" id="guessFeedback" aria-live="polite">{guess ? `Kamu menebak ${guess === "girl" ? "perempuan" : "laki-laki"}! Simpan tebakanmu…` : ""}</div>
-<button id="answerBtn" onClick={() => setRevealed(true)} disabled={revealed} type="button">Buka jawaban sebenarnya ✨</button>
+<div className="feedback" id="guessFeedback" aria-live="polite">{guess ? `Kamu memilih ${guess === "girl" ? "perempuan" : "laki-laki"}! Yuk, buka jawaban sebenarnya ✨` : ""}</div>
+<button id="answerBtn" onClick={() => { if (guess) setRevealed(true); }} disabled={!guess || revealed} aria-describedby="guessFeedback" type="button">Buka jawaban sebenarnya ✨</button>
 </div></section>
 <section className={`reveal${revealed ? " show" : ""}`} id="reveal" ref={revealRef} aria-live="polite">{revealed && <Confetti />}<div className="reveal-inner">
 <div className="small-title">A tiny dream, a lifetime of love</div><div className="baby-icon" aria-hidden="true">♡</div>
